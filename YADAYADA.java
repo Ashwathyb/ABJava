@@ -28,7 +28,7 @@ public class YADAYADA {
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Insert a bloody number");
+		System.out.println("Insert a beautiful number");
 		int number = sc.nextInt();
 		
 		
