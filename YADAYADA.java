@@ -28,9 +28,22 @@ public class YADAYADA {
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Insert a beautiful number");
-		int number = sc.nextInt();
+		System.out.println("What number would you like to input as the base?");
+		int base = sc.nextInt();
 		
+		while (base != 0) {
+			System.out.println("What number would you like to input as the exponent?");
+			int exp = sc.nextInt();
+			if (base == 0) {
+				System.out.println ("Base is zero");
+				System.exit(0);
+			}
+			if (exp < 0) {
+				Expositive = exp * -1;
+		
+		}
+	
+	
 		
 		
 	}
