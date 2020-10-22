@@ -30,9 +30,9 @@ public class MockTestPractical2 {
 						answer = answer * base;
 					}
 					System.out.print ("The answer is = ");
-					System.out.println ("  1   ");
-					System.out.println ("                -----");
-					System.out.println ("                     " + answer);
+					System.out.println ("   1   ");
+					System.out.println ("                ------");
+					System.out.println ("                   " + answer);
 					//double final = answer;
 					double decimal = 1.0/answer;
 					System.out.println ("The decimal answer is = " + decimal);

@@ -32,7 +32,8 @@ public class YADAYADA {
 		int base = sc.nextInt();
 		
 		while (base != 0) {
-			System.out.println("What number would you like to input as the exponent?");
+			System.out.println("What number would you like to input as the exponent?"); 
+																						/*BREATHE. Check your code. Try different prints to see what's wrong - Google 2K20*/
 			int exp = sc.nextInt();
 			if (base == 0) {
 				System.out.println ("Base is zero");
