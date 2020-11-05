@@ -11,7 +11,7 @@ public class IFExample
 			}
 		else if (number <= 10)
 			{
-				System.out.println ("Meh. Okay.");
+				System.out.println ("Meh. Okay.");;
 			}
 			if (number > 10)
 			{

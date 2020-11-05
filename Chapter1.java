@@ -47,16 +47,14 @@ public class Chapter1 {
 		System.out.println ("   ");
 		System.out.println ("Part 1.5");
 		System.out.println ("   ");
-		int answer = 2;
+		int answer; 
 		for (int r = 1; r <= 20; r++) {
-			int power = 1; 
-			for (int a = 1; a <= (power-1); a++) {
-				System.out.println ("2 raised to " + power + " is equal to " + answer);
+			answer = 1;
+			for (int a = 0; a < r; a++) {
 				answer = answer * 2;
-				}
-			power = power +1;
+			}
+			System.out.println ("2 raised to " + r + " is equal to " + answer);
 		}
-		System.out.println ("  Well, that failed haha  ");
 		System.out.println ("Part 1.6");
 		System.out.println ("   ");
 		int numone = 3;
