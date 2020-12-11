@@ -31,37 +31,35 @@ public class Chapter4 {
 		System.out.println ("   ");
 		System.out.println ("Part 4.2"); //I'm not sure if this is correct.
 		int digit = 1;
-		int x = digit%3;
+		int ans = 0;
 		int sum = digit;
 		System.out.print (digit + "  ");
-		do {
-			switch (x) {
+		for (int c=1; c<=1000; c++) {
+			switch (digit%3) {
 				case 0:
-					digit = -5*digit;
-					System.out.print (digit + "  ");
+					ans = -5*digit;
+					System.out.print (ans + "  ");
 				break;
 				case 1:
-					digit = 7*digit;
-					System.out.print (digit + "  ");
+					ans = 7*digit;
+					System.out.print (ans + "  ");
 				break;
 				case 2:
-					digit = 2*digit;
-					System.out.print (digit + "  ");
+					ans = 2*digit;
+					System.out.print (ans + "  ");
 				break;
 				default:
 					System.out.println ("Error");
 				break;	
 				}
-			sum = sum + digit;			
-		} while (digit <= 1000);
+			sum = sum + ans;			
+		}
 		System.out.println ("  ");
 		System.out.println ("The sum is " + sum);
 		System.out.println ("  ");
 		System.out.println ("Part 4.3");
 		int num = IBIO.inputInt ("Enter a number: ");
-		do {
-			
-		} 
+		 
 		
 		
 	}
