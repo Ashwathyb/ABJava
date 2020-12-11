@@ -29,38 +29,53 @@ public class Chapter4 {
 		}
 		
 		System.out.println ("   ");
-		System.out.println ("Part 4.2"); //I'm not sure if this is correct.
-		int digit = 1;
-		int ans = 0;
-		int sum = digit;
-		System.out.print (digit + "  ");
-		for (int c=1; c<=1000; c++) {
-			switch (digit%3) {
-				case 0:
-					ans = -5*digit;
-					System.out.print (ans + "  ");
+		System.out.println ("Part 4.2"); //I got it!!
+		int output = 0;
+		int sum = 0;
+		for (int start = 1; start <= 1000; start++) {
+			switch (start%3) {
+				case (0):
+					output = start * -5;
 				break;
-				case 1:
-					ans = 7*digit;
-					System.out.print (ans + "  ");
+				case (1) :
+					output = start * 7;
 				break;
-				case 2:
-					ans = 2*digit;
-					System.out.print (ans + "  ");
+				case (2) :
+					output = start * 2;
 				break;
-				default:
+				default :
 					System.out.println ("Error");
-				break;	
-				}
-			sum = sum + ans;			
+				break;
+			}
+			sum = sum + output;
 		}
-		System.out.println ("  ");
 		System.out.println ("The sum is " + sum);
-		System.out.println ("  ");
-		System.out.println ("Part 4.3");
-		int num = IBIO.inputInt ("Enter a number: ");
-		 
 		
+		System.out.println ("Part 4.3");
+		int squareone;
+		int squaretwo;
+		int addition = 0;
+		int num = IBIO.inputInt ("Enter a number: ");
+		while (num >= 1000) {
+			System.out.println ("Error.");
+			num = IBIO.inputInt ("Enter a number less than 1000: ");
+		}
+		for (int c = 1; c <= num; c++) {
+			squareone = c * c;
+			
+			for (int i = 1; i <= num; i++) {
+				squaretwo = i * i;
+				addition = squareone + squaretwo;
+				if (addition == num) {
+					System.out.print (c + "  " + i);
+					break;
+				}
+			}
+			if (addition == num) {
+				break;
+			}
+		
+		}
 		
 	}
 }
