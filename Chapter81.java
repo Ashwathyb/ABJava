@@ -2,7 +2,7 @@ public class Chapter81 {
 	
 	static boolean good (int a, int b) {
 	int x = a * b + 1;
-	int y = (int) (Math.sqrt(x) + 5);
+	int y = (int) (Math.sqrt(x) + 0.5);
 	return ( y * y == x);
 	}
 	
