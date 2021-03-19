@@ -20,7 +20,13 @@ public class ArraysChallenge2 {
 	
 	public static boolean identical (int [ ] arrayA, int [ ] arrayB) {
 		
-		int sameElement = 0;
+		int sameElement = 0; 
+		
+		if (arrayA.length != arrayB.length) { //must compare the lengths because they may not be the same and can cause issues if not acknowledged
+			
+			return false;
+			
+		}
 		
 		for (int c = 0; c < arrayA.length; c ++) {
 			
@@ -43,11 +49,11 @@ public class ArraysChallenge2 {
 		}
 	}
 	
-	public static int checking (int [ ] array, int n) {
+	public static int checking (int [ ] array, int n) { //occurences is a better word (also frequency)
 		
 		int checking = 0;
 		
-		for (int v = 0; v < array.length; v ++) {
+		for (int v = 0; v < array.length; v ++) { 
 			
 			if (array [v] == n) {
 				
@@ -80,7 +86,7 @@ public class ArraysChallenge2 {
 	public static int secondElement (int [ ] array) {
 		
 		int largest = array [ 0 ];
-		int secondlargest = 0;
+		int secondlargest = array [ 0 ]; //better to set default values as the first element as elements may be negative and if default values = 0, can cause issues
 		
 		for (int y = 0; y < array.length; y++) {
 			
