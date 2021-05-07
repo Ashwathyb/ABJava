@@ -2,8 +2,48 @@ public class ArraysDemo2 {
 	
 	public static void main (String[] args) {
 		
+		int[] original = { 7,9,6,8,1,3,5,2,4 };
 		
+		MAXSIZE = original.length;
 		
+		int[] array = clone(original);
+		
+		System.out.println("Original array");
+		
+		printArray(original);
+		
+		System.out.println("\nBubble sort");
+		
+		bubble( array );
+		
+		printArray(array);
+		
+		System.out.println();
+		
+	}
+	public static int[] clone(int[] array) {
+		 // returns a copy of array 
+		
+		if(array.length == 0) return null;
+		
+		int[] copy = new int[array.length];
+		
+		for(int i = 0; i < array.length; i++) {
+			
+			copy[i] = array[i];
+		}
+		
+		return copy;
+	}
+	
+	public static boolean isFull() {
+		
+		if (size == MAXSIZE) {
+	 		return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public static void printArray(int[] array) {
