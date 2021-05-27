@@ -8,9 +8,43 @@ public class Markbook
 		<50    = F
 	*/
 	public static String scoreToGrade(double score)
-	{	// score is a % from 0 - 100 inclusive
+	{	
+		// score is a % from 0 - 100 inclusive
+		
 		String grade = "";
-		// your code goes here
+		
+		if (score < 50) {
+			
+			grade = "F";
+			
+		}
+		
+		else if (score <= 64) {
+			
+			grade = "D";
+			
+		}
+		
+		else if (score <= 74) {
+			
+			grade = "C";
+			
+		}
+		
+		else if (score <= 84) {
+			
+			grade = "B";
+			
+		}
+		
+		else if (score <= 100) {
+			
+			grade = "A";
+			
+		}
+		
+		
+		
 		return grade;
 	}
 
@@ -19,9 +53,26 @@ public class Markbook
 	{	// calculate the average grade for each student, then
 		// convert it to a letter grade with scoreToGrade method
 		// and put result into a 3rd parallel array (averages)
-        String[] averages = new String[scores.length];
-		// your code goes here
-        return output;
+		
+		String[] averages = new String[scores.length];
+		int total = 0;
+		double grade = 0; 
+        
+        for (int i = 0; i < scores.length; i++) {
+			
+			for (int j = 0; j < scores[i].length - 1; j++) {
+				
+				total = total + scores [ i ] [ j ]; 
+				
+			}
+			
+			grade = total/(scores.length + 1);
+			
+			averages [i] = scoreToGrade (grade);
+		}
+		
+
+        return averages;
 	}
 
 
@@ -29,7 +80,19 @@ public class Markbook
 	{	// calculate the class average based on the 2D array with students scores
         double sum = 0;		// to add the scores of each student
 		double average = 0; // to store the result
-        // your code goes here
+        
+        for (int i = 0; i < scores.length; i++) {
+			
+			for(int j = 0; j < scores.length; j++) {
+				
+				
+				
+			}
+			
+		}
+        
+        
+        
         return average;
 	}
 
@@ -42,7 +105,7 @@ public class Markbook
 		for(int s = 0; s < classSize; s++)
 		{
 			int tests = scores[s].length; // number of tests/scores per student
-			System.out.print( names[s] + tab + tab );
+			System.out.print( studentNames[s] + tab + tab );
 			for(int t = 0; t < tests; t++)
 			{
 				System.out.print( scores[s][t] + tab );
