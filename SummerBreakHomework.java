@@ -141,7 +141,7 @@ public class SummerBreakHomework {
 			}
 				
 			y = IBIO.inputInt ("Please enter the column: ");
-			if (y > board[x].length) { //validation check
+			if (y > board[x-1].length) { //validation check
 				
 				y = IBIO.inputInt ("Invalid Input. Please enter the column: ");
 			}
