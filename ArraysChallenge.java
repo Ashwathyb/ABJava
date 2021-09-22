@@ -2,7 +2,7 @@ public class ArraysChallenge {
 	
 	public static void printArray (int [] one) {
 		
-		for (int element : one) {
+		for (int element : one) { //for (int i = 0; i < array.length; i++)
 			
 			System.out.println (element + "  ");
 		}

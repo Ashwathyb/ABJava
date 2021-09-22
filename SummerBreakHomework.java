@@ -25,32 +25,26 @@ public class SummerBreakHomework {
 		
 		for (int v = 0; v < array.length; v ++) { 
 			
-			for (int w = 0; w < array[v].length; w ++) {
-			
-				if (array [v] [v] == m) {
+			if (array [v] [v] == m) {
 				
-					checking = checking + 1;
+				checking = checking + 1;
 				
-				}
 			}
 		}
 		
 		return checking;
 	}
 	
-	public static int checkLRDiagonal (char [ ][ ] array, char o, int s) {
+	public static int checkLRDiagonal (char [ ][ ] array, char p, int s) {
 		
 		int checking = 0;
 		
 		for (int v = 0; v < array.length; v ++) { 
 			
-			for (int w = 0; w < array[v].length; w ++) {
-			
-				if (array [v] [o-1-v] == s) {
+			if (array [v] [s-1-v] == p) {
 				
-					checking = checking + 1;
+				checking = checking + 1;
 				
-				}
 			}
 		}
 		
@@ -130,7 +124,7 @@ public class SummerBreakHomework {
 		
 		System.out.println ("Let's Play!");
 		
-		while (occurences (board, '-') != 0) { //before player moves, checks for full board
+		while (occurences (board, '-') > 0) { //before player moves, checks for full board
 		
 			System.out.print ("Player O's turn. ");
 			
@@ -170,12 +164,12 @@ public class SummerBreakHomework {
 				
 			}
 			
-			if (checkRow (board, 'O', x) == size) {//checks the row the user just entered 
+			if (checkRow (board, 'O', x-1) == size) {//checks the row the user just entered 
 				
 				System.out.println ("Player O wins");
 			}
 			
-			if (checkColumn (board, 'O', y) == size) {
+			if (checkColumn (board, 'O', y-1) == size) {
 				
 				System.out.println ("Player O wins");
 			}
@@ -188,7 +182,7 @@ public class SummerBreakHomework {
 			}
 			
 			b = IBIO.inputInt ("Please enter the column: ");
-			if (b > board[b].length+1) {//validation check
+			if (b > board[b-1].length) {//validation check
 				b = IBIO.inputInt ("Invalid Input. Please enter the column: ");
 			}
 			
@@ -202,6 +196,8 @@ public class SummerBreakHomework {
 				if (checkRLDiagonal (board, 'X') == size) {
 					
 					System.out.println ("Player X wins");
+					
+					break;
 				}
 			}
 			
@@ -211,18 +207,22 @@ public class SummerBreakHomework {
 					
 					System.out.println ("Player X wins");
 					
+					break;
+					
 				}
 				
 			}
 			
-			if (checkRow (board, 'X', a) == size) {//checks the row the user just entered 
+			if (checkRow (board, 'X', a-1) == size) {//checks the row the user just entered 
 				
 				System.out.println ("Player X wins");
 			}
 			
-			if (checkColumn (board, 'X', b) == size) {
+			if (checkColumn (board, 'X', b-1) == size) {
 				
 				System.out.println ("Player X wins");
+				
+				break;
 			}
 			
 		}

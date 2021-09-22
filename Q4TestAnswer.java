@@ -6,13 +6,16 @@
 
 public class Q4TestAnswer
 {
+	/* Note: lastIndex may be replaced by array.length, but in such case
+	 * ===== you have to make sure you are not processing an array element that is NULL
+	 */
 	static int lastIndex = 0;
 	
 	public static void printArray(String[] a)
-	{	//					
+	{	//				   lastIndex		
 		for(int i = 0; i < a.length; i++)
 		{
-			//if(a[i] != null)
+			if(a[i] != null)
 			{	System.out.print( a[i] + "  ");
 			}
 		}
@@ -42,7 +45,7 @@ public class Q4TestAnswer
 			{	// start from first element until the last unsorted one
 				if( a[j].compareTo(a[j+1]) < 0) // if adjacent elements are
 				{	String temp = a[j];// not in order,
-					a[j] = a[j+1];  // swap them
+					a[j] = a[j+1];  // swap them; use < for descending; > for ascending
 					a[j+1] = temp;  // signal that we made a swap
 					swapped = true; // so we do another pass
 				} // if no swap is made in a pass, we are done sorting!
@@ -82,6 +85,43 @@ public class Q4TestAnswer
 			}
 		}
 		return -1;
+	}
+	
+	public static int binarySearch (String [ ] array, String key) {
+	
+	int max = array.length-1;	
+	int min = 0;
+	boolean found = false;
+	int index = 0;
+	int location = -1; 
+	
+	while (found == false) {
+		
+		index = (min + max)/2;
+		
+		if (key.compareTo(array [index]) == 0) {
+			
+			found = true;
+			location = index;
+			break;
+		}
+		
+		else if (key.compareTo(array [index]) < 0) {
+			
+			max = index - 1;			
+		}
+		
+		else {
+			
+			min = index + 1;
+			
+		}
+		
+	}
+	
+	return location;
+	
+	
 	}
 	
 	public static void remove(String[] a, int indexToRemove)
@@ -130,15 +170,34 @@ public class Q4TestAnswer
 	
 	public static int isSorted(String[] a)
 	{
-		if(isSortedAsc(a) )
+		if( isSortedAsc(a) )
 		{	return 1;
 		}
-		if(isSortedDesc(a) )
+		if( isSortedDesc(a) )
 		{	return -1;
 		}
 		return 0;
 	}
 	
+	public static void removeDuplicates(String[] a)
+	{
+		if( isSorted(a) != 1 )
+		{	System.out.println("Error-Array not sorted in ascending order");
+			return;
+		}
+		for(int i = 0; i < lastIndex; i++)
+		{
+			for(int j = 0; j < lastIndex; j++)
+			{
+				if(i != j && a[i].equals(a[j]))
+				{	System.out.println("Removed: " + a[j]);
+					remove(a, j);
+				}
+			}
+		}
+	}
+	/*
+	//simple and efficient (single loop), but only good to remove 2 (duplicates)
 	public static void removeDuplicates(String[] a)
 	{
 		if( isSorted(a) != 1 )
@@ -152,6 +211,7 @@ public class Q4TestAnswer
 			}
 		}
 	}
+	*/
 	
 	public static void insert(String[] a, String data, int index)
 	{	lastIndex++;
@@ -168,11 +228,11 @@ public class Q4TestAnswer
 			return;
 		}
 		if(isSorted(a) != 1)
-		{	System.out.println("Array not sorted in ascending order.");
+		{	System.out.println("Array NOT sorted in ascending order.");
 			return;
 		}
 		if( search(a, element) != -1 )
-		{	System.out.println(element + " already in the array");
+		{	System.out.println(element + " is already in the array");
 			return;
 		}
 		if(element.compareToIgnoreCase(a[0]) < 0)
@@ -188,14 +248,13 @@ public class Q4TestAnswer
 		while( i < lastIndex-1 && a[i].compareToIgnoreCase(element) < 0 )
 		{	i++;
 		}
-		
 		insert(a, element, i);
 		
 	}
 	
 	public static void main (String[] args)
 	{
-		String[] original = { "Abe", "Bob", "Gale", "Ed", "Faye", "Ives", "Chuck", "Abe", "Gale", "Anne" };
+		String[] original = { "Abe", "Bob", "Gale", "Ed", "Faye", "Ives", "Chuck", "Abe", "Gale", "Anne", "Gale" }; // added a 3rd Gale to test duplicate removal algos
 		String[] ascending  = clone(original);
 		String[] descending = clone(original);
 		selectionSort(ascending);
@@ -209,6 +268,9 @@ public class Q4TestAnswer
 		System.out.println("Looking for Lester [-1]: " + search(ascending, "Lester"));
 		System.out.println("Looking for anne   [-1]: " + search(ascending, "anne"));
 		System.out.println("Looking for Anne   [2] : " + search(ascending, "Anne"));
+		System.out.println("Looking for Lester [-1]: " + binarySearch(ascending, "Lester"));
+		System.out.println("Looking for anne   [-1]: " + binarySearch(ascending, "anne"));
+		System.out.println("Looking for Anne   [2] : " + binarySearch(ascending, "Anne"));
 		System.out.println("\noriginal array sorted [0]: " + isSorted(original));
 		System.out.println("ascending array sorted [1]: " + isSorted(ascending));
 		System.out.println("descending array sorted [-1]: " + isSorted(descending));
@@ -238,6 +300,7 @@ public class Q4TestAnswer
 		System.out.println("Inserting Ernesto into ascending");
 		insert(ascending, "Ernesto");
 		printArray(ascending);
+		
 	}
 }
 
